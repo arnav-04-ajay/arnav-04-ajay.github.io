@@ -1,0 +1,340 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 2000px; /* To enable scrolling */
+    background-color: black;
+}
+
+#logo{
+    width: max(25px, 4vw);
+    height: max(25px, 4vw);
+    clip-path: circle();
+}
+ #checkers_front{
+    height: 100vh; /* This makes it fit the viewport height */
+    width: 100vw;
+    object-fit:cover; /* This ensures the image covers the area without distortion */
+    position: relative; /* This keeps it in place while scrolling */
+    top: 0;
+    left: 0;
+    z-index: -1; /* This puts it behind other content */
+ }
+
+ .triangle-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 calc((max(32vw, 110px) / 1.5) + 32px*5) calc((max(140vw, 500px) / 1.5) + 140px*5); 
+    border-color: transparent transparent black transparent;
+    z-index: -1; 
+}
+
+.headshot{
+    position:absolute;
+    width: calc((max(32vw, 110px) / 1.4) / 1.5 + 32px*2);
+    height: calc((max(32vw, 110px) / 1.4) / 1.5 + 32px*2);
+    border-radius: 50%;
+    z-index: 0;
+    bottom: calc((max(32vw, 110px) / 2.8) / 1.5 + 32px*4);
+    right: calc((max(32vw, 110px) / 5) / 1.5 + 10px);
+}
+
+.heading-text{
+    position: absolute;
+    bottom: calc((max(32vw, 110px) / 1.3) / 1.5 + 32px*4.3);
+    right: calc((max(32vw, 110px) / 1.1) / 1.5 + 32px*2.5);
+    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+    color: beige;
+    font-size: calc(max(11px, 4.3vw) + 9px);
+}
+
+.subheading-text{
+    position: absolute;
+    bottom: calc(max(24vw, 89.286px) / 1.5 + 32px*4.2); 
+    right: calc(max(35vw, 100px) / 1.5 + 32px*2.8); 
+    transform-origin: right;
+    color: white;
+    transform: rotate(-12.875deg) translateY(160%);
+    font-size: max(9px, (1.8vw));
+    text-align: center;
+    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+}
+
+
+/*
+ .triangle-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 calc(max(32vw, 110px)) max(140vw, 500px); 
+    border-color: transparent transparent black transparent;
+    z-index: -1; 
+}
+
+.headshot{
+    position:absolute;
+    width: calc(max(32vw, 110px) / 1.4);
+    height: calc(max(32vw, 110px) / 1.4);
+    border-radius: 50%;
+    z-index: 0;
+    bottom: calc(max(32vw, 110px) / 2.8);
+    right: calc(max(32vw, 110px) / 5);
+}
+
+.heading-text{
+    position: absolute;
+    bottom: calc(max(32vw, 110px) / 1.3);
+    right: calc(max(32vw, 110px) / 1.1);
+    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+    color: beige;
+    font-size: calc(max(11px, 4.3vw) + 9px);
+}
+
+.subheading-text{
+    position: absolute;
+    bottom: calc(max(24vw, 89.286px)); 
+    right: calc(max(35vw, 100px)); 
+    transform-origin: right;
+    color: white;
+    transform: rotate(-12.875deg) translateY(160%);
+    font-size: max(9px, (1.8vw));
+    text-align: center;
+    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+}
+*/
+/*
+.triangle-overlay {
+    position: absolute;
+    bottom: -30px;  
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 max(256px, 21.33vw) max(1120px, 93.33vw);
+    border-color: transparent transparent black transparent;
+    z-index: -1;
+}
+
+.headshot {
+    position: absolute;
+    width: calc(max(220px, 21.33vw) / 1.4);
+    height: calc(max(220px, 21.33vw) / 1.4);
+    border-radius: 50%;
+    z-index: 0;
+    bottom: calc(max(220px, 21.33vw) / 2.8 + 50px);  
+    right: calc(max(220px, 21.33vw) / 5);
+}
+
+.heading-text {
+    position: absolute;
+    bottom: calc(max(220px, 21.33vw) / 1.3 + 50px); 
+    right: calc(max(220px, 21.33vw) / 1.1);
+    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+    color: beige;
+    font-size: max(30px, 2.87vw);
+}
+
+.subheading-text {
+    position: absolute;
+    bottom: calc(max(180px, 16vw) + 50px); 
+    right: calc(max(220px, 23.33vw));
+    transform-origin: right;
+    color: white;
+    transform: rotate(-12.875deg) translateY(160%);
+    font-size: max(9px, 1.8vw);
+    text-align: center;
+    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+}
+*/
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+    font-weight: 200;
+    z-index: 1;
+}
+
+.navbar-clear {
+    background-color: transparent !important;
+}
+
+.navbar-dark {
+    background-color: rgb(100, 100, 100) !important;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: white !important;
+}
+
+.navbar .nav-link:hover {
+    text-decoration: underline;
+}
+
+.nav-item{
+    font-size: max(11px, (1.3vw));
+    margin-left: calc(1.2vw - 15px);
+    margin-right: calc(1.2vw - 15px);
+}
+
+#main-title{
+    font-weight: 700;
+    font-size: calc(max(11px, 2.1vw) + 4px);
+}
+
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+/* Groups defined by delay */
+.fade-group1 {
+    animation-delay: 0s;
+}
+.fade-group2 {
+    animation-delay: 0.6s;
+}
+.fade-group3 {
+    animation-delay: 1.2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.main-body {
+    background-color: black;
+    position: relative;
+    z-index: 0;
+    padding: 2rem;
+    text-align: center;
+}
+
+.projects-title {
+    text-align: center;
+    font-size: max(24px, 3vw);
+    margin: 2rem 0;
+    position: relative;
+    display: inline-block;
+    color: white;
+    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+}
+
+.projects-title::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: white;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7vw;
+}
+
+.gallery-item {
+    opacity: 0;  /* Start invisible */
+    transform: translateY(20px);
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    border-radius: 10px;
+    cursor: pointer;  /* Add cursor pointer for clickable elements */
+}
+
+/* Add this new class */
+.gallery-link {
+    text-decoration: none;  /* Remove default link styling */
+    color: inherit;
+    display: block;  /* Make the link fill the container */
+}
+
+/* Modify the animation to have a shorter duration since it'll happen more frequently */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery-item.animate {
+    animation: fadeInUp 1s ease forwards;
+}
+
+.gallery-item:nth-child(2n) {
+    animation-delay: 0.3s;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.gallery-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+}
+
+.gallery-title {
+    margin: 0;
+    font-size: max(16px, 1.5vw);
+}
+
+.gallery-description {
+    margin: 0.5rem 0 0;
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    font-size: max(12px, 1vw);
+}
+
+.gallery-item:hover .gallery-image {
+    filter: grayscale(0%);
+}
+
+.gallery-item:hover .gallery-description {
+    max-height: 100px;
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+}
+
