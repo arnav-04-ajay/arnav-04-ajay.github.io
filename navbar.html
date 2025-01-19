@@ -1,20 +1,41 @@
 <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-clear fade-in fade-group1">
     <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-center" href="home.html" onclick="return tryNavigate(event, this, ['home.html', '../home.html'])"  id="main-title">
-            <img src="images/true_port_logo.jpg" onerror="this.onerror=null; this.src='../images/true_port_logo.jpg'" alt="Logo" class="d-inline-block align-top me-2" id="logo">
-            &nbspAA
-        </a>
-        <ul class="nav nav-pills navbar-right">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 1</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 2</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 3</a>
-            </li>
+      <a class="navbar-brand d-flex align-items-center" href="home.html" onclick="return tryNavigate(event, this, ['home.html', '../home.html'])" id="main-title">
+        <img src="images/true_port_logo.jpg" onerror="this.onerror=null; this.src='../images/true_port_logo.jpg'" alt="Logo" class="d-inline-block align-top me-2" id="logo">
+        &nbspAA
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="home.html" onclick="return tryNavigate(event, this, ['home.html', '../home.html'])">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="resume.html" onclick="return tryNavigate(event, this, ['resume.html', '../resume.html'])">Resume</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="employmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Employment
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="employmentDropdown">
+              <li><a class="dropdown-item" href="#">Stryker: Robotics Engineering Intern</a></li>
+              <li><a class="dropdown-item" href="#">Durham Museum of Life and Science: Electrical Engineering Intern</a></li>
+              <li><a class="dropdown-item" href="#">Fyzical Health and Balance: iOS App Development Intern</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="projectsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Projects
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="projectsDropdown">
+              <li><a class="dropdown-item" href="#">Software Projects</a></li>
+              <li><a class="dropdown-item" href="#">Hardware Projects</a></li>
+              <li><a class="dropdown-item" href="#">Research</a></li>
+            </ul>
+          </li>
         </ul>
+      </div>
     </div>
-</nav>
-<script src="scripts.js"></script>
+  </nav>

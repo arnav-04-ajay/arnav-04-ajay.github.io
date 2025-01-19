@@ -47,8 +47,8 @@ body {
 
 .heading-text{
     position: absolute;
-    bottom: calc((max(32vw, 110px) / 1.3) / 1.5 + 32px*4.3);
-    right: calc((max(32vw, 110px) / 1.1) / 1.5 + 32px*2.5);
+    bottom: calc((max(32vw, 110px) / 1.3) / 1.5 + 32px*4.4);
+    right: calc((max(32vw, 110px) / 1.1) / 1.5 + 32px*2.6);
     font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
     color: var(--all-main-font);
     font-size: calc(max(11px, 4.3vw) + 9px);
@@ -67,94 +67,6 @@ body {
 }
 
 
-/*
- .triangle-overlay {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 0 calc(max(32vw, 110px)) max(140vw, 500px); 
-    border-color: transparent transparent black transparent;
-    z-index: -1; 
-}
-
-.headshot{
-    position:absolute;
-    width: calc(max(32vw, 110px) / 1.4);
-    height: calc(max(32vw, 110px) / 1.4);
-    border-radius: 50%;
-    z-index: 0;
-    bottom: calc(max(32vw, 110px) / 2.8);
-    right: calc(max(32vw, 110px) / 5);
-}
-
-.heading-text{
-    position: absolute;
-    bottom: calc(max(32vw, 110px) / 1.3);
-    right: calc(max(32vw, 110px) / 1.1);
-    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
-    color: beige;
-    font-size: calc(max(11px, 4.3vw) + 9px);
-}
-
-.subheading-text{
-    position: absolute;
-    bottom: calc(max(24vw, 89.286px)); 
-    right: calc(max(35vw, 100px)); 
-    transform-origin: right;
-    color: white;
-    transform: rotate(-12.875deg) translateY(160%);
-    font-size: max(9px, (1.8vw));
-    text-align: center;
-    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
-}
-*/
-/*
-.triangle-overlay {
-    position: absolute;
-    bottom: -30px;  
-    right: 0;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 0 max(256px, 21.33vw) max(1120px, 93.33vw);
-    border-color: transparent transparent black transparent;
-    z-index: -1;
-}
-
-.headshot {
-    position: absolute;
-    width: calc(max(220px, 21.33vw) / 1.4);
-    height: calc(max(220px, 21.33vw) / 1.4);
-    border-radius: 50%;
-    z-index: 0;
-    bottom: calc(max(220px, 21.33vw) / 2.8 + 50px);  
-    right: calc(max(220px, 21.33vw) / 5);
-}
-
-.heading-text {
-    position: absolute;
-    bottom: calc(max(220px, 21.33vw) / 1.3 + 50px); 
-    right: calc(max(220px, 21.33vw) / 1.1);
-    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
-    color: beige;
-    font-size: max(30px, 2.87vw);
-}
-
-.subheading-text {
-    position: absolute;
-    bottom: calc(max(180px, 16vw) + 50px); 
-    right: calc(max(220px, 23.33vw));
-    transform-origin: right;
-    color: white;
-    transform: rotate(-12.875deg) translateY(160%);
-    font-size: max(9px, 1.8vw);
-    text-align: center;
-    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
-}
-*/
 
 .navbar {
     position: fixed;
@@ -163,13 +75,15 @@ body {
     font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
     font-weight: 200;
     z-index: 3;
+    background-color: transparent !important; /* Force initial transparency */
 }
 
 .navbar-clear {
     background-color: transparent !important;
 }
 
-.navbar-dark {
+/* Only apply the dark background when the .navbar-dark class is present */
+.navbar.navbar-dark {
     background-color: rgb(100, 100, 100) !important;
 }
 
@@ -183,14 +97,157 @@ body {
 }
 
 .nav-item{
-    font-size: max(11px, (1.3vw));
-    margin-left: calc(1.2vw - 15px);
-    margin-right: calc(1.2vw - 15px);
+    font-size: max(14px, (1.3vw));
+    margin-left: calc(1.2vw - 10px);
+    margin-right: calc(1.2vw - 10px);
 }
+
+.navbar-toggler {
+    border: 1px solid var(--all-main-font);
+    padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='beige' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-clear .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='beige' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Start off-screen */
+        bottom: 0;
+        width: 300px;
+        padding-top: 5rem;
+        background-color: rgba(0, 0, 0, 0.95);
+        transition: right 0.3s ease;
+        height: 100vh;
+        margin-top: 0;
+    }
+
+    .navbar-collapse.show {
+        right: 0; /* Slide in from right */
+    }
+
+    .navbar-nav {
+        text-align: right;
+        padding-right: 2rem;
+    }
+
+    .nav-item {
+        margin: 1rem 0;
+    }
+
+    /* Position the toggle button in a fixed position */
+    .navbar-toggler {
+        position: relative;
+        z-index: 2000;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        width: 300px;
+        padding-top: 5rem;
+        background-color: rgba(0, 0, 0, 0.95);
+        transition: right 0.3s ease;
+        height: 100vh;
+        margin-top: 0;
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+ 
+    .navbar-collapse::-webkit-scrollbar {
+        width: 6px;
+    }
+ 
+    .navbar-collapse::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+    }
+ 
+    .navbar-collapse::-webkit-scrollbar-thumb {
+        background: var(--all-main-font);
+        border-radius: 3px;
+    }
+
+ }
+
+/* Dropdown menu styling */
+.dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid var(--all-main-font);
+    min-width: 200px;
+    max-width: 100vw; /* Prevent extending past screen width */
+}
+
+/* Right-align the last dropdown menu (Projects) */
+.navbar-nav > li:last-child .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+.dropdown-item {
+    color: var(--all-main-font);
+    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+    font-size: calc(max(12px, (1.1vw)));
+    padding: 1rem 1rem;
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words if necessary */
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--all-main-font);
+}
+
+/* Mobile dropdown adjustments */
+@media (max-width: 991.98px) {
+    .dropdown-menu {
+        background-color: transparent;
+        border: none;
+        text-align: right;
+        padding-right: 1rem;
+        width: 100%; /* Full width in mobile */
+    }
+
+    .dropdown-item {
+        padding: 0.5rem 1rem;
+        color: var(--all-main-font);
+        text-align: right; /* Consistently right-align all dropdown items */
+    }
+    
+    /* Align all dropdown toggles to the right in mobile */
+    .nav-link.dropdown-toggle {
+        text-align: right;
+    }
+    
+    .dropdown-item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Ensure dropdowns don't extend past the mobile menu */
+    .navbar-collapse .dropdown-menu {
+        max-width: calc(100% - 2rem); /* Account for padding */
+        margin-left: auto; /* Push to right side */
+    }
+}
+
 
 #main-title{
     font-weight: 700;
-    font-size: calc(max(11px, 2.1vw) + 4px);
+    font-size: calc(max(14px, 2.1vw) + 2px);
 }
 
 
@@ -387,7 +444,7 @@ body {
 .feature-icons {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: max(3rem, 10vw);
 }
 
 .icon-container {
@@ -403,7 +460,7 @@ body {
 }
 
 .icon-container span {
-    font-size: 0.9rem;
+    font-size: max(13px, 1.4vw);
     color: var(--primary-white);
 }
 
@@ -522,19 +579,33 @@ body {
 }
 
 .image-container.multi-image,
-.image-container-t2.multi-image {
+.image-container-t2.multi-image,
+.image-container.dual-image,
+.image-container-t2.dual-image {
     flex: 1 1 300px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto auto;
     gap: 1rem;
     padding: 2rem;
     height: auto;
-    min-width: 200px;
+    min-width: 300px;
+}
+
+.image-container.multi-image,
+.image-container-t2.multi-image {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+}
+
+.image-container.dual-image,
+.image-container-t2.dual-image {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto auto;
 }
 
 .image-container.multi-image img,
-.image-container-t2.multi-image img {
+.image-container-t2.multi-image img,
+.image-container.dual-image img,
+.image-container-t2.dual-image img {
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -543,8 +614,28 @@ body {
 }
 
 .image-container.multi-image img:first-child,
-.image-container-t2.multi-image img:first-child {
+.image-container-t2.multi-image img:first-child,
+.image-container.dual-image img:first-child,
+.image-container-t2.dual-image img:first-child {
     grid-column: 1 / -1;
+}
+
+.video-container.single-video,
+.video-container-t2.single-video {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+}
+
+.video-container.single-video video,
+.video-container-t2.single-video video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;  /* or whatever aspect ratio your video has */
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .content-container,
@@ -579,7 +670,7 @@ body {
 
 .gallery-grid {
     columns: 3;
-    column-gap: 0;
+    column-gap: 10px;
     width: 90%;
     max-width: 1400px;
     margin: 0 auto;
@@ -590,6 +681,7 @@ body {
     width: 100%;
     height: auto;
     display: block;
+    margin: 10px;
 }
 
 @media (max-width: 768px) {
@@ -640,4 +732,48 @@ body {
     .goal-card p {
         font-size: max(10px, 2.5vw); /* Ensures text remains legible */
     }
+}
+
+.resume-container {
+    background-color: black;
+    min-height: 100vh;
+    padding: 6rem 2rem 2rem;
+    text-align: center;
+}
+
+.resume-title {
+    color: var(--all-main-font);
+    text-align: center;
+    font-size: max(30px, 3.5vw);
+    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+    margin-bottom: 2rem;
+}
+
+.pdf-container {
+    max-width: 1000px;
+    height: 80vh;
+    margin: 0 auto 2rem;
+}
+
+.resume-pdf {
+    width: 100%;
+    height: 100%;
+}
+
+.download-button {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    background-color: var(--all-main-font);
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+    font-size: max(16px, 1.2vw);
+}
+
+.download-button:hover {
+    opacity: 0.9;
+    color: black;
 }
