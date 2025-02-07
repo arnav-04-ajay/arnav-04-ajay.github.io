@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-1</title>
+    <link rel="icon" src="../images/true_port_logo.jpg" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <!-- Rest of your page content -->
+    <section class="hero-section">
+        <img src="../images/snap-box/breadboard_proto.jpg" alt="Project Hero" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="projects-title fade-in fade-group2">Analog Snap Switch</h1>
+            <div class="feature-highlights fade-in fade-group3">
+                <div class="feature-icons">
+                    <div class="icon-container">
+                        <i class="bi bi-bezier2"></i>
+                        <span>Transistor Usage</span>
+                    </div>
+                    <div class="icon-container">
+                        <i class="bi bi-boxes"></i>
+                        <span>CAD</span>
+                    </div>
+                    <div class="icon-container">
+                        <i class="bi bi-sliders"></i>
+                        <span>Analog Circuitry</span>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="fade-in fade-group3 scroll-indicator">
+            <span>Scroll for more</span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="overview-section">
+        <div class="overview-container">
+            <h2 class="overview-title">Project Overview</h2>
+            <p class="overview-description">
+                I wanted to create a prototypical version of some interesting devices I had seen before that were sound-activated (like lights that turn on via a snap or a clap). However, I wanted to do this without using a microcontroller or other digital components, and I also wanted to have modular control over the device I was powering and the duration for which it would be powered on.
+            </p>
+        </div>
+    </section>
+    
+    <section class="goals-section">
+        <div class="goals-container">
+            <div class="vertical-heading">Project Goals</div>
+            <div class="goal-cards-container">
+                <div class="goal-card">
+                    <h3>Purely Analog</h3>
+                    <p>Did not want the inclusion of any digit logic or circuitry whatsoever</p>
+                </div>
+                <div class="goal-card">
+                    <h3>Modularity</h3>
+                    <p>Have the ability to choose the device I want to power and switch out devices as necessary. Also be able to control how long the device remains on for.</p>
+                </div>
+                <div class="goal-card">
+                    <h3>Clean Design</h3>
+                    <p>Wanted to the project to fit a very small profile (so that it was portable) and have a nice casing (most likely 3D printed).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="technical-section-text">
+        <div class="technical-aspect-text">
+            <div class="images-container-text">
+                <div class="image-wrapper">
+                    <img src="../images/snap-box/protoboard_proto.jpg" alt="Technical Diagram 1">
+                </div>
+                <div class="image-wrapper">
+                    <img src="../images/snap-box/box_open_light.png" alt="Technical Diagram 2">
+                </div>
+            </div>
+            <div class="content-container-text">
+                <div class="text-section">
+                    <h4>Main Analog Components</h4>
+                    <p>The circuit uses a MOSFET and an LM555 timer IC to power the load when a snap (or a loud sound in general) is heard on the microphone. The circuit works by using the microphone input signal as the gate for the MOSFET, which triggers the 555 IC and provides power to the load circuit. The 555 IC turns the load device on for a duration proportional to the product of the capacitance and series resistance on pin 6 (threshold) of the IC.</p>
+                </div>
+                <div class="text-section">
+                    <h4>Modularity in Load and Duration</h4>
+                    <p>As described in the previous section, the duration for which the load is powered on is proportional to RC where C is the capacitance and R is the resistance connected to the threshold pin of the 555 IC. Thus, by introducing a potentiometer to serve as this resistance, we can control the amount of series resistance, and thus control the duration for which the load is powered. We also add a potentiometer between the load and the power source, allowing us to change our resistance according to the load device we decide to use (this method is used only because the loads used require relatively low voltage to operate and load resistance is generally constant).</p>
+                </div>
+                <div class="text-section">
+                    <h4>Housing</h4>
+                    <p>For the outer casing of the circuit (done on a protoboard) I designed a casing in SolidWorks and had it 3D printed. The casing contained slots for the mic, load connector, and power supply, and had screw holes for standoffs on which the protoboard was mounted.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="technical-section-1">
+        <div class="technical-aspect-t1">
+            <div class="image-container single-image">
+                <div class="video-container single-video">
+                    <video controls style="object-fit: contain;">
+                        <source src="../images/snap-box/full_demo.MOV" type="video/quicktime">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="content-container">
+                <h3>Project Demo</h3>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="gallery-section">
+        <h2 class="projects-title gallery-title-proj">Gallery</h2>
+        <div class="gallery-grid">
+            <img src="../images/snap-box/box_closed.jpg" alt="Gallery image 1">
+            <img src="../images/snap-box/box_open_light.png" alt="Gallery image 2">
+            <img src="../images/snap-box/breadboard_proto.jpg" alt="Gallery image 3">
+            <img src="../images/snap-box/protoboard_proto.jpg" alt="Gallery image 1">
+            <img src="../images/snap-box/555_ic.png" alt="Gallery image 1">
+            <!-- Add as many images as you need -->
+        </div>
+    </section>
+
+    <div id="foot-placeholder"></div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/scripts.js"></script>
+</body>
+</html>
+
+

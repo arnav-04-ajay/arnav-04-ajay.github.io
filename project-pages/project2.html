@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project-1</title>
+    <link rel="icon" src="../images/true_port_logo.jpg" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -20,19 +21,32 @@
             <div class="feature-highlights fade-in fade-group3">
                 <div class="feature-icons">
                     <div class="icon-container">
+                        <i class="bi bi-code-slash"></i>
+                        <span>FPGA Programming</span>
+                    </div>
+                    <div class="icon-container">
                         <i class="bi bi-cpu-fill"></i>
-                        <span>Feature 1</span>
+                        <span>CPU Design</span>
                     </div>
                     <div class="icon-container">
-                        <i class="bi bi-lightning-fill"></i>
-                        <span>Feature 2</span>
-                    </div>
-                    <div class="icon-container">
-                        <i class="bi bi-wifi"></i>
-                        <span>Feature 3</span>
+                        <i class="bi bi-box-fill"></i>
+                        <span>Architecture Optimization</span>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="fade-in fade-group3 scroll-indicator">
+            <span>Scroll for more</span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="overview-section">
+        <div class="overview-container">
+            <h2 class="overview-title">Project Overview</h2>
+            <p class="overview-description">
+                As part of my Digital Systems class I designed a 5-stage pipelined 32-bit CPU (in Verilog) with minor optimizations such as Wallace Tree multiplication, carry-lookahead addition, and bypassing. For our final project me and a classmate teamed up and challenged ourselves to try and integrate this CPU in a setup such that it could play a physical checkers game against a human player (all components including I/O integration and interfacing done from scratch in either MIPS assembly or Verilog).
+            </p>
         </div>
     </section>
     
@@ -41,16 +55,16 @@
             <div class="vertical-heading">Project Goals</div>
             <div class="goal-cards-container">
                 <div class="goal-card">
-                    <h3>Goal 1</h3>
-                    <p>Description of the first project goal.</p>
+                    <h3>Design 100MHz Processor</h3>
+                    <p>Using verilog, design a pipelined, optimized CPU from scratch.</p>
                 </div>
                 <div class="goal-card">
-                    <h3>Goal 2</h3>
-                    <p>Description of the second project goal.</p>
+                    <h3>Design Custom I/O</h3>
+                    <p>Design custom interfaces and libraries for I/O components (lights and hall effect sensors)</p>
                 </div>
                 <div class="goal-card">
-                    <h3>Goal 3</h3>
-                    <p>Description of the third project goal.</p>
+                    <h3>Develop Checkers Algorithm</h3>
+                    <p>Write an algorithm based on a heuristic search to play checkers against a human player.</p>
                 </div>
             </div>
         </div>
@@ -65,8 +79,8 @@
                 <img src="../images/checkers/pipelining_diag.png" alt="Technical Aspect 1" style="object-fit: contain;">
             </div>
             <div class="content-container">
-                <h3>Title for technical aspect 1</h3>
-                <p>Description of technical aspect 1</p>
+                <h3>Processor Design</h3>
+                <p>Over the course of my Digital Systems class, I designed a 5-stage pipelined processor. As seen in the diagrams, the stages are as follows: five stages: fetch (retrieves instruction and updates program counter), decode (extracts register data), execute (performs ALU operations and handles branching), memory (manages memory interactions), and writeback (updates registers with results). The CPU employs bypassing, which allows results from later stages to be directly passed to earlier stages where needed, avoiding unnecessary delays and dependencies. Additionally, the CPU implements stalling mechanisms that temporarily suspend execution when dealing with load-use hazards or mult/div operations.</p>
             </div>
         </div>
     </section>
@@ -81,8 +95,8 @@
                 <img src="../images/checkers/shift_regs.png" alt="Technical Aspect 2" style="object-fit: cover;">
             </div>
             <div class="content-container-t2">
-                <h3>Title for technical aspect 2</h3>
-                <p>Description of technical aspect 2</p>
+                <h3>I/O Integration with FPGA</h3>
+                <p>The I/O for our project included individually addressable lights to show player and CPU pieces and to indicate the CPU's move. Additionally, hall effect sensors were placed under all playable squares and fed into shift registers, resulting in a single input signal being used to read data from all 32 sensors. All code for the lights (WS2812 protocol PWM for individual addressing) and the sensors (custom library for reading from the shift registers) was done in Verilog and all I/O was memory mapped (tied to one of our 32-bit registers each).</p>
             </div>
         </div>
     </section>
@@ -100,8 +114,8 @@
                 </div>
             </div>
             <div class="content-container">
-                <h3>Title for technical aspect 1</h3>
-                <p>Description of technical aspect 1</p>
+                <h3>Physical Design and Integration</h3>
+                <p>The physical design for the checkers board included a fully custom board and housing box that was lazer cut and wood stained and polished. The board was made keeping the spacing of lights and hall effect sensors in mind. The box included slots for a power source (to power the FPGA) and a button that is pressed to indicate the player's turn being finished.</p>
             </div>
         </div>
     </section>
@@ -116,8 +130,8 @@
                 </video>
             </div>
             <div class="content-container-t2">
-                <h3>Title for technical aspect 2</h3>
-                <p>Description of technical aspect 2</p>
+                <h3>Project Demo + Results</h3>
+                <p>Full project demo showing the checkers algorithm at work (a relatively simple heuristic search). Overall, the project exceeded all expectations, not only performing very well (especially considering all elements were done from scratch, and all code elements were in low level Verilog or MIPS assembly), but also looking visually clean and professional.</p>
             </div>
         </div>
     </section>
@@ -137,9 +151,11 @@
         </div>
     </section>
 
-
+    <div id="foot-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/scripts.js"></script>
 </body>
 </html>
+
+

@@ -69,28 +69,42 @@ function initializeNavbar() {
 function tryNavigate(event, link, paths) {
     event.preventDefault();
     
-    // Try each path in sequence
-    fetch(paths[0])
+    // If no paths are provided, do nothing
+    if (!paths || paths.length === 0) {
+      return false;
+    }
+    
+    // Function to try the next path in the sequence
+    function tryNextPath(remainingPaths) {
+      // If no more paths to try, stop
+      if (remainingPaths.length === 0) {
+        console.warn('No valid paths found');
+        return;
+      }
+      
+      // Try the first path in the remaining paths
+      fetch(remainingPaths[0])
         .then(response => {
-            if (!response.ok) {
-                // If first path fails, try the second path
-                if (paths.length > 1) {
-                    window.location.href = paths[1];
-                }
-                return;
-            }
-            // If first path succeeds, use it
-            window.location.href = paths[0];
+          if (!response.ok) {
+            // If path fails, try the next path
+            tryNextPath(remainingPaths.slice(1));
+            return;
+          }
+          
+          // If path succeeds, navigate to it
+          window.location.href = remainingPaths[0];
         })
         .catch(() => {
-            // If first path fails with an error, try the second path
-            if (paths.length > 1) {
-                window.location.href = paths[1];
-            }
+          // If fetch fails, try the next path
+          tryNextPath(remainingPaths.slice(1));
         });
+    }
+    
+    // Start trying paths
+    tryNextPath(paths);
     
     return false;
-}
+  }
 
 // Initialize intersection observer for gallery items
 const observer = new IntersectionObserver((entries) => {
@@ -129,3 +143,20 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(item);
     });
 });
+
+
+fetch('footer.html')
+    .then(response => {
+        if (!response.ok) {
+            // If first fetch fails, try the second path
+            return fetch('../footer.html');
+        }
+        return response;
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('foot-placeholder').innerHTML = data;
+        // Initialize navbar effects and dropdowns after navbar is loaded
+        initializeNavbar();
+    })
+    .catch(error => console.error('Error loading footer:', error));

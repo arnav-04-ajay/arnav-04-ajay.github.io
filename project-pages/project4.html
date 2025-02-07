@@ -3,17 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project-1</title>
+    <title>Project-4</title>
+    <link rel="icon" src="../images/true_port_logo.jpg" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 <body>
     <div id="nav-placeholder"></div>
     <!-- Rest of your page content -->
-    <div class="main-body">
-        <div class="projects-title fade-in fade-group1">Project 4</div>
-    </div>
+    <section class="hero-section">
+        <img src="../images/dorm-lock/door_lock_v1_drawing.png" alt="Project Hero" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="projects-title fade-in fade-group2">Proximity Lock</h1>
+            <div class="feature-highlights fade-in fade-group3">
+                <div class="feature-icons">
+                    <div class="icon-container">
+                        <i class="bi bi-boxes"></i>
+                        <span>Custom 3D Prints</span>
+                    </div>
+                    <div class="icon-container">
+                        <i class="bi bi-cpu-fill"></i>
+                        <span>Power Management</span>
+                    </div>
+                    <div class="icon-container">
+                        <i class="bi bi-bluetooth"></i>
+                        <span>BLE Proximity</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fade-in fade-group3 scroll-indicator">
+            <span>Scroll for more</span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="overview-section">
+        <div class="overview-container">
+            <h2 class="overview-title">Project Overview</h2>
+            <p class="overview-description">
+                My roommate and I were tired of having to use a key to lock and unlock our dorm door, since we were spoiled by our old dorm which automatically locked and used an RFID scan from our phone to unlock the door. However, we thought we could take this a step further, and design a system to lock and unlock the door based on our proximity to the dorm, thus making the whole process hands free.
+            </p>
+        </div>
+    </section>
+    
+    <section class="goals-section">
+        <div class="goals-container">
+            <div class="vertical-heading">Project Goals</div>
+            <div class="goal-cards-container">
+                <div class="goal-card">
+                    <h3>Convenience</h3>
+                    <p>Wanted the whole system to be hands free and reliable.</p>
+                </div>
+                <div class="goal-card">
+                    <h3>Low Power Usage</h3>
+                    <p>Didn't want to have to constantly deal with recharging (and risk getting locked out if the system ran out of power).</p>
+                </div>
+                <div class="goal-card">
+                    <h3>Easy Installation</h3>
+                    <p>Wanted the system to be easy to set up and remove (we don't want to get fined for anything permanent on the door).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="technical-section-text">
+        <div class="technical-aspect-text">
+            <div class="images-container-text">
+                <div class="image-wrapper">
+                    <img src="../images/dorm-lock/IMG_0674.jpg" alt="Technical Diagram 1">
+                </div>
+                <div class="image-wrapper">
+                    <img src="../images/dorm-lock/IMG_0676.jpg" alt="Technical Diagram 2">
+                </div>
+            </div>
+            <div class="content-container-text">
+                <div class="text-section">
+                    <h4>Physical Design</h4>
+                    <p>The physical design was simply a 3D printed housing for a servo motor and our circuit (which was on a protoboard). The full housing setup could be screwed onto existing screw holes placed on the door for the lock.</p>
+                </div>
+                <div class="text-section">
+                    <h4>Circuitry</h4>
+                    <p>The simple protoboard circuit contained an ESP32 and a step-down power conversion board (to manage power coming from a power bank and operate the ESP32 and the servo motor).</p>
+                </div>
+                <div class="text-section">
+                    <h4>Bluetooth Proximity Use</h4>
+                    <p>First, the users' phones are paired to the ESP32 via bluetooth by running a pairing script on the ESP32. Then, the ESP32 is configured as a BLE (Bluetooth Low Energy) server, which detects if other previously paired devices are within a certain BLE signal strength range, which then handles a simple state system to turn the servo motor which either unlocks or locks the door (depending on if paired users are or aren't within range respectively). Manual overrides can also be sent to the ESP32 via BLE communication from the users' phones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="technical-section-1">
+        <div class="technical-aspect-t1">
+            <div class="image-container dual-image">
+                <div class="video-container single-video">
+                    <video controls>
+                        <source src="../images/dorm-lock/lock_moving.mov" type="video/quicktime">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-container single-video">
+                    <video controls>
+                        <source src="../images/dorm-lock/full_demo.mov" type="video/quicktime">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="content-container">
+                <h3>Video Demos</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2 class="projects-title gallery-title-proj">Gallery</h2>
+        <div class="gallery-grid">
+            <img src="../images/dorm-lock/IMG_0676.jpg" alt="Gallery image 1">
+            <img src="../images/dorm-lock/IMG_0674.jpg" alt="Gallery image 2">
+            <img src="../images/dorm-lock/door_lock_v1_drawing.png" alt="Gallery image 1">
+            <img src="../images/dorm-lock/IMG_0662.jpg" alt="Gallery image 2">
+            <img src="../images/dorm-lock/IMG_0664.jpg" alt="Gallery image 3">
+            <!-- Add as many images as you need -->
+        </div>
+    </section>
+
+    <div id="foot-placeholder"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/scripts.js"></script>
 </body>
 </html>
+
+

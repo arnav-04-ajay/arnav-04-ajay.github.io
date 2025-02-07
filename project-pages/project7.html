@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-1</title>
+    <link rel="icon" src="../images/true_port_logo.jpg" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <!-- Rest of your page content -->
+    <section class="hero-section">
+        <img src="../images/app_dev/breathe_easy_look.png" alt="Project Hero" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="projects-title fade-in fade-group2">Physical Therapy Exercise Design</h1>
+            <div class="feature-highlights fade-in fade-group3">
+                <div class="feature-icons">
+                    <div class="icon-container">
+                        <i class="bi bi-eye-fill"></i>
+                        <span>Gaze Tracking</span>
+                    </div>
+                    <div class="icon-container">
+                        <i class="bi bi-apple"></i>
+                        <span>iOS App Dev</span>
+                    </div>
+                    <div class="icon-container">
+                        <i class="bi bi-activity"></i>
+                        <span>Activity Monitoring</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fade-in fade-group3 scroll-indicator">
+            <span>Scroll for more</span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+        
+    </section>
+
+    <section class="overview-section">
+        <div class="overview-container">
+            <h2 class="overview-title">Project Overview</h2>
+            <p class="overview-description">
+                Under the guidance of professor Rabih Younes (Duke University), I worked on making physical therapy apps for the Fyzical Therapy and Balance Centers. Specifically, I worked on and app for Oculomotor Dysfunction and an app for breath training.
+            </p>
+        </div>
+    </section>
+    
+    <section class="goals-section">
+        <div class="goals-container">
+            <div class="vertical-heading">Project Goals</div>
+            <div class="goal-cards-container">
+                <div class="goal-card">
+                    <h3>Game-like design</h3>
+                    <p>We want to encourage patients to regularly keep up with their exercises, and game-like exercises can assist with this.</p>
+                </div>
+                <div class="goal-card">
+                    <h3>Clean UI/UX</h3>
+                    <p>Want to keep the overall look minimalist and easy to use, but also visually appealing.</p>
+                </div>
+                <div class="goal-card">
+                    <h3>Effective Exercises</h3>
+                    <p>Exercises should attempt to mimic the effect of exercises given in a clinic, and should thus have true impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="technical-section-1">
+        <div class="technical-aspect-t1">
+            <div class="image-container dual-image">
+                <div class="video-container single-video">
+                    <video controls height="auto" width="100%" style="object-fit: contain;">
+                        <source src="../images/app_dev/eye_track_test.mov" type="video/quicktime">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-container single-video">
+                    <video controls height="auto" width="100%" style="object-fit: contain;">
+                        <source src="../images/app_dev/gaze_track_test.mov" type="video/quicktime">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="content-container">
+                <h3>Oculomotor Dysfunction App</h3>
+                <p>Oculomotor dysfunction impairs a person's ability to coordinate their eye movements, which can affect things such as depth perception, following moving objects, etc. Thus, the exercises designed for this app utilized eye tracking and gaze tracking to follow the patients' progress in their vision during the exercise and over time. This eye and gaze tracking (shown in the videos) are a combination of Apple's ARKit library for iOS and some vector-calculus based scripts written for mapping and space transforms.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="technical-section-2">
+        <!-- Single image example -->
+        <div class="technical-aspect-t2">
+            <div class="image-container multi-image">
+                <img src="../images/app_dev/oculomotor2.png" alt="Technical Aspect 1" style="aspect-ratio: auto; width: 48%;">
+                <img src="../images/app_dev/oculomotor1.png" alt="Technical Aspect 1" style="aspect-ratio: auto;">
+                <img src="../images/app_dev/oculomotor3.png" alt="Technical Aspect 1" style="aspect-ratio: auto;">
+            </div>
+            <div class="content-container-t2">
+                <h3>UI/UX and Design</h3>
+                <p>The design for the Oculomotor app specifically was kept relatively minimalist with a white and gray overall theme. In addition to the exercises page, a page was added to keep track of all previous exercise progress and show a calendar for future scheduled exercises. A basic settings page was also added, as well as a feature to message a physician.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="technical-section-carousel" style="background-color: beige;">
+        <div class="technical-aspect-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="../images/app_dev/calibration_1.PNG" alt="Image 1" style="object-fit: contain;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="../images/app_dev/calibration2.PNG" alt="Image 2" style="object-fit: contain;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="../images/app_dev/calibration3.PNG" alt="Image 3" style="object-fit: contain;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="../images/app_dev/calibration4.PNG" alt="Image 3" style="object-fit: contain;">
+                </div>
+                <button class="carousel-button prev">&lt;</button>
+                <button class="carousel-button next">&gt;</button>
+                <div class="carousel-dots"></div>
+            </div>
+            <div class="content-container-carousel" style="color: black;">
+                <h3>Gaze tracking calibration</h3>
+                <p>For the Oculomotor app, a gaze tracking calibration exercise was added before proceeding with all other exercises. This was simply to ensure that the app's estimation of the patients' gaze was accurate to their true gaze, this way each exercise could be performed with correct gaze data each time.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="technical-section-2">
+        <!-- Single image example -->
+        <div class="technical-aspect-t2">
+            <div class="image-container single-image">
+                <div class="video-container single-video">
+                    <video controls height="auto" width="100%" style="object-fit: contain;">
+                        <source src="../images/app_dev/breathe_easy.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="content-container-t2">
+                <h3>Breath Training App</h3>
+                <p>The second app I developed was a breath training app to help assist patients with Asthma, Cystic Fibrosis, etc. This was simply an active instructional app that guided users through several active breathing exercises (about 5 mins each).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2 class="projects-title gallery-title-proj">Gallery</h2>
+        <div class="gallery-grid">
+            <img src="../images/app_dev/breathe_easy_look.png" alt="Gallery image 1">
+            <img src="../images/app_dev/oculomotor1.png" alt="Gallery image 1">
+            <img src="../images/app_dev/oculomotor3.png" alt="Gallery image 2">
+            <img src="../images/app_dev/calibration3.PNG" alt="Gallery image 3">
+            <!-- Add as many images as you need -->
+        </div>
+    </section>
+
+    <div id="foot-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/scripts.js"></script>
+    <script>
+        // Carousel functionality
+        const carousel = document.querySelector('.carousel-container');
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const prevButton = carousel.querySelector('.prev');
+        const nextButton = carousel.querySelector('.next');
+        const dotsContainer = carousel.querySelector('.carousel-dots');
+
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+
+        function updateSlides() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlides();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlides();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlides();
+        }
+
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 3000);
+    </script>
+</body>
+</html>
+

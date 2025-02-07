@@ -3,17 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project-2</title>
+    <title>Project-1</title>
+    <link rel="icon" src="../images/true_port_logo.jpg" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 <body>
     <div id="nav-placeholder"></div>
     <!-- Rest of your page content -->
-    <div class="main-body">
-        <div class="projects-title fade-in fade-group1">Project 3</div>
-    </div>
+    <section class="hero-section">
+        <img src="../images/museum-proj/dome_network.jpg" alt="Project Hero" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="projects-title fade-in fade-group2">Leafcutter Ant Humidifier</h1>
+            <div class="feature-highlights fade-in fade-group3">
+                <div class="feature-icons">
+                    <div class="icon-container">
+                        <i class="bi bi-reception-4"></i>
+                        <span>PID Control</span>
+                    </div>
+                    <div class="icon-container">
+                        <i class="bi bi-lightning-fill"></i>
+                        <span>Sensor Integration</span>
+                    </div>
+                    <div class="icon-container">
+                        <i class="bi bi-credit-card-2-front"></i>
+                        <span>PCB Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fade-in fade-group3 scroll-indicator">
+            <span>Scroll for more</span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="overview-section">
+        <div class="overview-container">
+            <h2 class="overview-title">Project Overview</h2>
+            <p class="overview-description">
+                Me and a group of 3 other engineering majors at Duke were tasked with creating a custom humidification system for one the Durham Museum of Life and Science's exhibits. Specifically, their Leafcutter Ant exhibit needs to be consistently kept at about 80% humidity for optimal colony growth. In the past, this was done by staff members spraying the exhibit with mist once a day, but this was inefficient in terms of both staff effort and resulting humidity.
+            </p>
+        </div>
+    </section>
+    
+    <section class="goals-section">
+        <div class="goals-container">
+            <div class="vertical-heading">Project Goals</div>
+            <div class="goal-cards-container">
+                <div class="goal-card">
+                    <h3>Automation</h3>
+                    <p>The primary goal of this project is to minimize direct staff involvement with this task while keeping humidity closer to the 80% goal consistently.</p>
+                </div>
+                <div class="goal-card">
+                    <h3>Scalability</h3>
+                    <p>The leafcutter ant colony can grow over time, and thus we needed a system that was scalable in the event that exhibit size increased.</p>
+                </div>
+                <div class="goal-card">
+                    <h3>Maintainability</h3>
+                    <p>Once again, we wanted to keep direct staff involvement to a minimum, including the maintenance of the system that we build for humidification.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="technical-section-1">
+        <!-- Single image example -->
+        <div class="technical-aspect-t1">
+            <div class="image-container multi-image">
+                <img src="../images/museum-proj/old_humid_check.png" alt="Technical Aspect 1">
+                <img src="../images/museum-proj/old_humid_system.png" alt="Technical Aspect 1" style="object-fit: fill; aspect-ratio: auto;">
+                <img src="../images/museum-proj/dome_substrate.png" alt="Technical Aspect 1" style="object-fit: fill; aspect-ratio: auto;">
+            </div>
+            <div class="content-container">
+                <h3>Design Requirements</h3>
+                <p>The Leafcutter Ant exhibit is a structure made up of many interconnected glass dome-like enclosures and a food chamber. In the past, museum staff would spray the food chamber with mist every day. As seen in the second image, the humidity readings as a result of this were about 35% on average (much lower than the goal of 80%).</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="technical-section-carousel">
+        <div class="technical-aspect-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="../images/museum-proj/pcb_design.png" alt="Technical Aspect 2" style="object-fit: contain;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="../images/museum-proj/clip+cover_model.png" alt="Technical Aspect 2" style="aspect-ratio: auto; object-fit: fill;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="../images/museum-proj/sensor_mount_and_portal_sketches.png" alt="Technical Aspect 2" style="aspect-ratio: auto; object-fit: contain;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="../images/museum-proj/portal_model.png" alt="Technical Aspect 2" style="aspect-ratio: auto; object-fit: contain;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="../images/museum-proj/circuit_components.png" alt="Technical Aspect 2" style="aspect-ratio: auto; object-fit: contain;">
+                </div>
+                <button class="carousel-button prev">&lt;</button>
+                <button class="carousel-button next">&gt;</button>
+                <div class="carousel-dots"></div>
+            </div>
+            <div class="content-container-carousel">
+                <h3>Fully Custom Mechanical and Electrical Designs</h3>
+                <p>To improve and automate this humidification process, we designed a custom part that holds water, an ultrasonic Humidifier, and a humidity sensor. This part was designed to fit on the tops of the glass domes (allowing for scalability if new domes were introduced). All of these humidifiers and sensors are monitored and operated via an ESP32 module on a custom PCB (also containing a multiplexer to assist with I2C communication with all sensors and humidifiers) with JST connectors to allow for easy installation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="technical-section-1">
+        <div class="technical-aspect-t1">
+            <div class="image-container dual-image">
+                <img src="../images/museum-proj/full_final_side.jpeg" alt="Technical Aspect Detail 1">
+                <img src="../images/museum-proj/prod_top.jpeg" alt="Technical Aspect Detail 2">
+            </div>
+            <div class="content-container">
+                <h3>Integration + Results</h3>
+                <p>All custom parts fit as expected on the glass domes and all data collection proceeded smoothly. Humidification was guided by a PID system that we programmed on the ESP32 and was based on the humidity sensor data. The system was also field tested and it performed quite well, maintaining about 70-80% humidity consistently. The water in each of the modules lasted for about 3-4 days, after which it needed manual refilling.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="technical-section-2">
+        <!-- Single image example -->
+        <div class="technical-aspect-t2">
+            <div class="video-container single-video">
+                <video controls>
+                    <source src="../images/museum-proj/hum_test.MOV" type="video/quicktime">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="content-container-t2">
+                <h3>Ultrasonic Humidification Test Demo</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2 class="projects-title gallery-title-proj">Gallery</h2>
+        <div class="gallery-grid">
+            <img src="../images/museum-proj/portal_model.png" alt="Gallery image 1">
+            <img src="../images/museum-proj/clip+cover_sketches.png" alt="Gallery image 2">
+            <img src="../images/museum-proj/dome_substrate.png" alt="Gallery image 3">
+            <img src="../images/museum-proj/full_final_side.jpeg" alt="Gallery image 1">
+            <img src="../images/museum-proj/pcb_design.png" alt="Gallery image 2">
+            <!-- Add as many images as you need -->
+        </div>
+    </section>
+
+    <div id="foot-placeholder"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/scripts.js"></script>
+    <script>
+        // Carousel functionality
+        const carousel = document.querySelector('.carousel-container');
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const prevButton = carousel.querySelector('.prev');
+        const nextButton = carousel.querySelector('.next');
+        const dotsContainer = carousel.querySelector('.carousel-dots');
+
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+
+        function updateSlides() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlides();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlides();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlides();
+        }
+
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 3000);
+    </script>
 </body>
 </html>
+
+

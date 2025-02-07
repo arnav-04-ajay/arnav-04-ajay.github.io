@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project-1</title>
+    <link rel="icon" src="../images/true_port_logo.jpg" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -21,18 +22,31 @@
                 <div class="feature-icons">
                     <div class="icon-container">
                         <i class="bi bi-cpu-fill"></i>
-                        <span>Feature 1</span>
+                        <span>Circuit Design</span>
                     </div>
                     <div class="icon-container">
                         <i class="bi bi-lightning-fill"></i>
-                        <span>Feature 2</span>
+                        <span>Power Management</span>
                     </div>
                     <div class="icon-container">
                         <i class="bi bi-wifi"></i>
-                        <span>Feature 3</span>
+                        <span>iOT Features</span>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="fade-in fade-group3 scroll-indicator">
+            <span>Scroll for more</span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="overview-section">
+        <div class="overview-container">
+            <h2 class="overview-title">Project Overview</h2>
+            <p class="overview-description">
+                Catch-and-release fishing is a popular hobby that allows people to experience the joy of fishing while also being environmentally sustainable. However, many casual catch-and-release fishermen might not be familiar with the best practices to follow to ensure the fish gets released safely. The NOAA recommends that the fish have minimal exposure to air (under 60 seconds if possible), minimal physical handling of the fish, and to avoid touching the gills and eyes of the fish. If these guidelines aren’t followed, the fish’s rate of survival once released declines, and thus we aimed to create a device that would eliminate the need to directly handle the fish while also passing water over the fish’s gills to help resuscitate it during release. 
+            </p>
         </div>
     </section>
     
@@ -41,16 +55,16 @@
             <div class="vertical-heading">Project Goals</div>
             <div class="goal-cards-container">
                 <div class="goal-card">
-                    <h3>Goal 1</h3>
-                    <p>Description of the first project goal.</p>
+                    <h3>Power and Logic Circuitry</h3>
+                    <p>Design of a circuit to power and control all components required for live video feed and fish detection, water pumps, and a release mechanism.</p>
                 </div>
                 <div class="goal-card">
-                    <h3>Goal 2</h3>
-                    <p>Description of the second project goal.</p>
+                    <h3>Ease of Use</h3>
+                    <p>Wanted the product to be relatively hands off during operation but also have some optional controls for the user.</p>
                 </div>
                 <div class="goal-card">
-                    <h3>Goal 3</h3>
-                    <p>Description of the third project goal.</p>
+                    <h3>Quality of Life Features</h3>
+                    <p>Implement an app to keep track of operation status and of what fish have been released previously.</p>
                 </div>
             </div>
         </div>
@@ -64,8 +78,18 @@
                 <img src="../images/fishbox/IMG_1136.jpg" alt="Technical Aspect 1">
             </div>
             <div class="content-container">
-                <h3>Title for technical aspect 1</h3>
-                <p>Description of technical aspect 1</p>
+                <h3>Power Management and Operation Logic</h3>
+                <p>
+                    The operation of this fish-release device required 3 main components:
+                </p>
+                <ul>
+                    <li>The detection of the fish within the device itself</li>
+                    <li>Water pumps to facilitate the flow of oxygen through the gills of the fish</li>
+                    <li>A door release mechanism</li>
+                </ul>
+                <p>
+                    Given these requirements, I designed a circuit to help power a Raspberry Pi 4B (which would be used process live video feed), an Arduino Nano (to toggle the door release and pumps independently), two pumps, a servo motor for the door release mechanism, and 3 indicator lights to tell the user if the system was online, if the door was open, and if the pumps were running respectively. The Raspberry Pi uses simple blob detection to determine when a fish is in the device and starts a timer, which keeps track of when to trigger the individual pumps and when to release the fish. These events are communicated to the Arduino Nano via GPIO pins, after which the Nano handles a state system using the given inputs to toggle the release door and turn the individual pumps on or off.
+                </p>
             </div>
         </div>
     </section>
@@ -80,8 +104,13 @@
                 <img src="../images/fishbox/arducam.png" alt="Technical Aspect 2">
             </div>
             <div class="content-container-t2">
-                <h3>Title for technical aspect 2</h3>
-                <p>Description of technical aspect 2</p>
+                <h3>Live Video and Product App</h3>
+                <p>We used a simple Arducam to take live video, which was streamed via a local network hosted by the Raspberry Pi. The app features a simple design made in flutter, and does the following:</p>
+                <ul>
+                    <li>Displays the live video feed</li>
+                    <li> and displays a picture of each fish released (taken immediately after detection)</li>
+                    <li>Has buttons that toggle endpoints on the Raspberry Pi (for manual door and pump toggling if desired)</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -94,8 +123,8 @@
                 <img src="../images/fishbox/carbon_cad.JPG" alt="Technical Aspect Detail 2">
             </div>
             <div class="content-container">
-                <h3>Title for technical aspect 1</h3>
-                <p>Description of technical aspect 1</p>
+                <h3>Physical Design</h3>
+                <p>Although I didn't directly deal with the physical design that much, the overall goal was to keep the design lightweight and for it to have a relatively small profile (overall weight was < 7lbs). A custom carbon fiber layup was done for the overall structure, and custom nozzles were made to assist with water flow out of the pumps.</p>
             </div>
         </div>
     </section>
@@ -110,8 +139,8 @@
                 </video>
             </div>
             <div class="content-container-t2">
-                <h3>Title for technical aspect 2</h3>
-                <p>Description of technical aspect 2</p>
+                <h3>Product Demo + Results</h3>
+                <p>Full product setup and demo video provided here. The product ended up working as expected and is quite easy to use. Field testing and a little bit of physical cleanup is required.</p>
             </div>
         </div>
     </section>
@@ -130,7 +159,7 @@
         </div>
     </section>
 
-
+    <div id="foot-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/scripts.js"></script>

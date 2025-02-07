@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-1</title>
+    <link rel="icon" src="../images/true_port_logo.jpg" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <!-- Rest of your page content -->
+    <section class="hero-section">
+        <img src="../images/payload/DSC_5816.JPG" alt="Project Hero" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="projects-title fade-in fade-group2">Duke Aero Payload Flight Computer</h1>
+            <div class="feature-highlights fade-in fade-group3">
+                <div class="feature-icons">
+                    <div class="icon-container">
+                        <i class="bi bi-credit-card-2-front-fill"></i>
+                        <span>PCB Design</span>
+                    </div>
+                    <div class="icon-container">
+                        <i class="bi bi-lightning-fill"></i>
+                        <span>Power Management</span>
+                    </div>
+                    <div class="icon-container">
+                        <i class="bi bi-arrow-left-right"></i>
+                        <span>I2C+SPI Interfacing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fade-in fade-group3 scroll-indicator">
+            <span>Scroll for more</span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="overview-section">
+        <div class="overview-container">
+            <h2 class="overview-title">Project Overview</h2>
+            <p class="overview-description">
+                For Duke Aero's 2024-25 build, I am primarily in charge of designing and testing the flight computer that will assist our payload with its tasks. I will also be testing the ability of our payload to perform its tasks before our main launch in 2025 Spaceport America Cup (this is still a work in progress).  
+            </p>
+        </div>
+    </section>
+    
+    <section class="goals-section">
+        <div class="goals-container">
+            <div class="vertical-heading">Project Goals</div>
+            <div class="goal-cards-container">
+                <div class="goal-card">
+                    <h3>Small profile</h3>
+                    <p>Our payload follows a 5U cubesat standard, and the flight computer PCB specifically needs to sit along the wall of a 1U cube space (10x10x10 cm).</p>
+                </div>
+                <div class="goal-card">
+                    <h3>Power Efficient</h3>
+                    <p>Power management is extremely important for this project, since we are restricted in terms of batteries we are allowed to use (for instance, LiPo not allowed), and some of our components are quite power hungry (servos and Raspberry Pi especially).</p>
+                </div>
+                <div class="goal-card">
+                    <h3>Functional Data Communication</h3>
+                    <p>A mix of I2C and SPI protocols needs to be used to communicate effectively between components and minimize GPIO pin usage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="technical-section-1">
+        <!-- Single image example -->
+        <div class="technical-aspect-t1">
+            <div class="image-container dual-image">
+                <img src="../images/payload/payload_structure.png" alt="Technical Aspect 1" style="object-fit: contain; margin-bottom: -2rem;">
+                <img src="../images/payload/payload_in_rocket.png" alt="Technical Aspect 1" style="object-fit: contain; margin-bottom: -4rem;">
+            </div>
+            <div class="content-container">
+                <h3>Payload Context</h3>
+                <p>The 2024-25 payload is designed to follow a 5U cubesat standard, and will be ejected from the rocket when it reaches apogee (30,000 ft goal). This version's payload has the following goals: </p>
+                <ul>
+                    <li>Live telemetry transmission (including altitude, GPS location, gyroscopic data, and video feed).</li>
+                    <li>Simple computer vision for bushes and other objects on the ground.</li>
+                    <li>Guided descent (ideally using the computer vision to help guide the payload away from bushes and other terrain obstacles).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="technical-section-2">
+        <!-- Single image example -->
+        <div class="technical-aspect-t2">
+            <div class="image-container dual-image">
+                <img src="../images/payload/power_draw.png" alt="Technical Aspect 1" style="object-fit: contain; margin-bottom: -2rem; margin-top: -4rem;">
+                <img src="../images/payload/schematic.png" alt="Technical Aspect 1" style="object-fit: contain; margin-bottom: -2rem;">
+            </div>
+            <div class="content-container-t2">
+                <h3>Circuitry and Components</h3>
+                <p>A lot of critical design decisions needed to be made when designing this circuit due to the high volume of parts we were dealing with and the power draw of each of those components (shown in the first image). The main components were organized as follows:</p>
+                <ul>
+                    <li>High Power Draw: The servo motors (for guided descent) and the camera and Raspberry Pi (for computer vision) were high power draw components (averaging about 2A for each system), but were also only necessary once the payload is in descent, and were thus only given power at this time via triggering a transistor which connected the ground line of these components to their power source.</li>
+                    <li>Low Power Draw: All other telemetry components (GPS module, pressure sensor for altitude, IMU for acceleration data, and LoRA module for data transmission) did not draw too much power, and were thus active and controlled via an ESP32 ProS3 module (also low power draw, and is also what is responsible for triggering the transistor for the high power components).</li>
+                    <li>Power Management: A simple voltage divider circuit was made and its output was fed into the ESP32 so that we could read battery voltage at all times. Additionally, buck converters were used to step down the battery voltage for some of the 5V components.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="technical-section-carousel" style="background-color: beige;">
+        <div class="technical-aspect-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="../images/payload/schematic2.png" alt="Image 1" style="object-fit: contain;">
+                </div>
+                <div class="carousel-slide active">
+                    <img src="../images/payload/pcb_draw.png" alt="Image 1" style="object-fit: contain;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="../images/payload/pcb_3d.png" alt="Image 2" style="object-fit: contain;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="../images/payload/pcb_3d_2.png" alt="Image 3" style="object-fit: contain;">
+                </div>
+                <button class="carousel-button prev">&lt;</button>
+                <button class="carousel-button next">&gt;</button>
+                <div class="carousel-dots"></div>
+            </div>
+            <div class="content-container-carousel" style="color: black;">
+                <h3>Results</h3>
+                <p>The main board (schematics and PCB view) are shown. Board design has been reviewed (internally) and is approved for manufacture.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2 class="projects-title gallery-title-proj">Gallery</h2>
+        <div class="gallery-grid">
+            <img src="../images/payload/Image.jpeg" alt="Gallery image 1">
+            <img src="../images/payload/pcb_3d.png" alt="Gallery image 2">
+            <img src="../images/payload/pcb_3d_2.png" alt="Gallery image 3">
+            <img src="../images/payload/launch2.png" alt="Gallery image 1">
+            <img src="../images/payload/DSC_5816.JPG" alt="Gallery image 2">
+            <!-- Add as many images as you need -->
+        </div>
+    </section>
+
+    <div id="foot-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/scripts.js"></script>
+    <script>
+        // Carousel functionality
+        const carousel = document.querySelector('.carousel-container');
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const prevButton = carousel.querySelector('.prev');
+        const nextButton = carousel.querySelector('.next');
+        const dotsContainer = carousel.querySelector('.carousel-dots');
+
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+
+        function updateSlides() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlides();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlides();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlides();
+        }
+
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 3000);
+    </script>
+</body>
+</html>
+
+
