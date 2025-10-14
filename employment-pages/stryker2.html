@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Experience</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        /* Custom styles for work experience page */
+        .experience-hero {
+            height: 60vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .company-logo {
+            position: absolute;
+            right: 10%;
+            width: max(100px, 22vw);
+            height: max(100px, 22vw);
+            object-fit: contain;
+            z-index: 2;
+        }
+
+        .experience-content {
+            width: 50%;
+            padding-left: 10%;
+            position: relative;
+            z-index: 2;
+            align-items: center;
+        }
+
+        .role-title {
+            font-size: max(20px, 3vw);
+            color: beige;
+            margin-bottom: 1rem;
+        }
+
+        .company-name {
+            font-size: max(15px, 2vw);
+            color: var(--all-main-font);
+            margin-bottom: 0.5rem;
+        }
+
+        .duration {
+            font-size: max(14px, 1.5vw);
+            color: var(--all-main-font);
+            opacity: 0.8;
+        }
+
+        .section-container {
+            padding: 4rem 10%;
+            background-color: var(--all-main-font);
+        }
+
+        .section-container:nth-child(odd) {
+            background-color: black;
+        }
+
+        .section-title {
+            font-size: max(20px, 2.5vw);
+            color: black;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-container:nth-child(odd) .section-title {
+            color: var(--all-main-font);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+        }
+
+        .section-container:nth-child(odd) .section-title::after {
+            background-color: var(--all-main-font);
+        }
+
+        .daily-tasks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .task-card {
+            background-color: black;
+            padding: 2rem;
+            border-radius: 10px;
+            color: var(--all-main-font);
+        }
+
+        .section-container:nth-child(odd) .task-card {
+            background-color: var(--all-main-font);
+            color: black;
+        }
+
+        .task-card i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .deliverable-item {
+            background-color: black;
+            padding: 2rem;
+            border-radius: 10px;
+            color: var(--all-main-font);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-container:nth-child(odd) .deliverable-item {
+            background-color: var(--all-main-font);
+            color: black;
+        }
+
+        /* New styles for image support */
+        .deliverable-item.with-image {
+            padding: 2rem;
+            min-height: 400px;
+        }
+
+        .deliverable-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .deliverable-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .deliverable-item.with-image:hover .deliverable-image {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        .deliverable-image {
+            transition: transform 0.3s ease;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .deliverable-item.with-image {
+                min-height: 350px;
+            }
+
+            .deliverable-image {
+                height: 150px;
+            }
+        }
+
+        .highlights-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .highlight-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+            color: beige;
+        }
+
+        .highlight-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: black;
+        }
+
+        .section-container:nth-child(odd) .highlight-item::before {
+            background-color: beige;
+        }
+
+        .highlight-item::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 20px;
+            bottom: -40px;
+            width: 2px;
+            background-color: black;
+        }
+
+        .section-container:nth-child(odd) .highlight-item::after {
+            background-color: beige;
+        }
+
+        .highlight-item:last-child::after {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .experience-hero {
+                height: auto;
+                padding: 4rem 2rem;
+            }
+
+            .experience-content {
+                width: 100%;
+                padding-left: 0;
+                text-align: center;
+            }
+
+            .company-logo {
+                position: relative;
+                right: auto;
+                margin: 2rem auto;
+            }
+
+            .section-container {
+                padding: 3rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <section class="experience-hero">
+        <div class="experience-content fade-in fade-group1">
+            <h1 class="role-title">Electrical Engineering and Embedded Systems Intern</h1>
+            <h2 class="company-name">Stryker Instruments (Surgical Technologies Division)</h2>
+            <p class="duration">May 2025 - August 2025</p>
+        </div>
+        <img src="../images/stryker2/stryker_neptune.png" alt="Company Logo" class="company-logo fade-in fade-group2">
+    </section>
+
+    <section class="section-container">
+        <h2 class="section-title">Day-to-Day Responsibilities</h2>
+        <div class="daily-tasks">
+            <div class="task-card">
+                <i class="bi bi-search"></i>
+                <h3>New Product Research</h3>
+                <p>Worked on research for future iterations of subsystems within the Neptune line of Stryker products, specifically the Neptune 3 and potential successors. This involved analysis of electronics parts within the Neptune systems and their specifications combined with results from in-field use.</p>
+            </div>
+            <div class="task-card">
+                <i class="bi bi-gear"></i>
+                <h3>New Assembly Design and Development</h3>
+                <p>Was given ownership of the vacuum regulator assembly used within the Neptune line of products and developed a new version over the course of my internship which shows strong promise for implementation in future Neptune designs (more details in the deliverables section).</p>
+            </div>
+            <div class="task-card">
+                <i class="bi bi-people"></i>
+                <h3>Sub-team Meetings</h3>
+                <p>Attended EE meetings within the Neptune R&D subteam and led design, code, and assembly review sessions. Collaborated with the subteam throughout development to validate testing procedures and ensure sound design decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h2 class="section-title">Key Deliverables</h2>
+        <div class="deliverables-grid">
+            <div class="deliverable-item with-image">
+                <img src="../images/stryker2/regulator.png" alt="Technical Aspect Main" class="deliverable-image" style="object-fit: contain;">
+                <i class="bi bi-graph-up"></i>
+                <h3>New Neptune Vacuum Regulator Design</h3>
+                <p>Resdesigned the Neptune Vacuum Regulator assembly to feature a new drive system and circuitry, custom hardware, and new control algorithm to integrate into current and future Neptune systems (specific details are covered under NDA). Control algorithm involved PID tuning (from scratch) for precise vacuum pressure control.</p>
+            </div>
+            <div class="deliverable-item with-image">
+                <img src="../images/stryker2/neptune_image.jpeg" alt="Technical Aspect Main" class="deliverable-image" style="object-fit: contain;">
+                <i class="bi bi-speedometer2"></i>
+                <h3>Research-Backed Testing of New Design</h3>
+                <p>Wrote thorough testing procedure to test new design in exisitng Neptune system and ensure higher reliability and durability compared to current assembly's performance in the field (specifics covered by NDA).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h2 class="section-title">Key Highlights</h2>
+        <div class="highlights-timeline">
+            <div class="highlight-item">
+                <h3>New Assmebly Approval</h3>
+                <p>After comprehensive research of the performance of the existing system, I developed a case for improvement of the vacuum regulator assembly both in terms of business yield and assembly reliability (engineering perspective). Case for redesign was well-recieved and I was given approval to move forward with development.</p>
+            </div>
+            <div class="highlight-item">
+                <h3>Initial System Testing Success</h3>
+                <p>Once the new assembly and control algorithm was developed I integrated it into a current Neptune system which produced favorable results. I invited EEs on the team to meet and discuss the new design, present preliminary results from system integration, and give them a hands-on opportunity with the new design. Received overwhelmingly positive feedback from this and was given approval for long term (high cycle) testing to establish field proficiency.</p>
+            </div>
+            <div class="highlight-item">
+                <h3>Strong Preliminary Results for Long Term Tests</h3>
+                <p>Scripts and test setups for high cycle testing are underway and show strong signs of new design being more reliable (even under high strain field conditions) when compared to current regulator subsystem.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="foot-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/scripts.js"></script>
+</body>
+</html>

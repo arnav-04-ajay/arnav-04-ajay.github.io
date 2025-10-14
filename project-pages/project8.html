@@ -14,23 +14,23 @@
     <div id="nav-placeholder"></div>
     <!-- Rest of your page content -->
     <section class="hero-section">
-        <img src="../images/app_dev/breathe_easy_look.png" alt="Project Hero" class="hero-image" loading="lazy">
+        <img src="../images/payload26/structure+deployer.png" alt="Project Hero" class="hero-image" loading="lazy">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="projects-title fade-in fade-group2">Physical Therapy Exercise Design</h1>
+            <h1 class="projects-title fade-in fade-group2">2025-26 Aero Payload</h1>
             <div class="feature-highlights fade-in fade-group3">
                 <div class="feature-icons">
                     <div class="icon-container">
                         <i class="bi bi-cpu-fill"></i>
-                        <span>Feature 1</span>
+                        <span>PCB Design</span>
                     </div>
                     <div class="icon-container">
-                        <i class="bi bi-lightning-fill"></i>
-                        <span>Feature 2</span>
+                        <i class="bi bi-wrench"></i>
+                        <span>Embedded Systems Development</span>
                     </div>
                     <div class="icon-container">
-                        <i class="bi bi-wifi"></i>
-                        <span>Feature 3</span>
+                        <i class="bi bi-people-fill"></i>
+                        <span>Project Management</span>
                     </div>
                 </div>
             </div>
@@ -40,172 +40,137 @@
             <i class="bi bi-chevron-down"></i>
         </div>
     </section>
+
+    <section class="overview-section">
+        <div class="overview-container">
+            <h2 class="overview-title">Project Overview</h2>
+            <p class="overview-description">
+                As Electrical Engineering team lead of the Payload subteam for Duke Aero, I will help manage and develop the various systems that make up our payload this year. The 2025-26 payload will be an SAC compliant 5U cubesat system with telemetry transmission, 1.3 GHz analog live video, guided recovery, regenerative wind turbine power, and gimbal camera SRAD subsystems. <br><br>
+
+                Telemetry will be transmitted via LoRa to the ground station throughout flight and descent. Once deployed from the nosecone, the first stage of parachute deployment (drogue parachute) will occur and an onboard camera will produce a video feed which will be recorded locally to an SD card. This digital video feed will also be converted to analog video and transmitted live to the ground station throughout payload descent, with the gimbal stabilizing video feed. Telemetry information will be visualized in an easy-to-read UI and combined with the live video for entry into the SAC live video challenge. Additionally, the wind turbine system will generate and store power throughout descent. Upon the second stage of parachute deployment (main parachute), the guided parachute system will direct the payload toward a predetermined landing spot.
+
+            </p>
+        </div>
+    </section>
     
     <section class="goals-section">
         <div class="goals-container">
             <div class="vertical-heading">Project Goals</div>
             <div class="goal-cards-container">
                 <div class="goal-card">
-                    <h3>Goal 1</h3>
-                    <p>Description of the first project goal.</p>
+                    <h3>Fully SRAD PCBs</h3>
+                    <p>Design custom SRAD (Student Reasearch and Design) PCBs for telemetry transmission, live video storage and transmission, power management, and subsystem control.</p>
                 </div>
                 <div class="goal-card">
-                    <h3>Goal 2</h3>
-                    <p>Description of the second project goal.</p>
+                    <h3>Live Video Competition Proficiency</h3>
+                    <p>Be able to produce and transmit clear and stable live video to our ground station to hopefully win the SAC live video challenge.</p>
                 </div>
                 <div class="goal-card">
-                    <h3>Goal 3</h3>
-                    <p>Description of the third project goal.</p>
+                    <h3>Autonomous Guided Descent</h3>
+                    <p>This being one of our more complex challenges, we want to provide a proof-of-concept design for a system to guide the payload to a location autonomously during descent.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="technical-section-1">
+        <!-- Single image example -->
         <div class="technical-aspect-t1">
-            <div class="image-container dual-image">
-                <div class="video-container single-video">
-                    <video controls>
-                        <source src="../images/app_dev/eye_track_test.mov" type="video/quicktime">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="video-container single-video">
-                    <video controls>
-                        <source src="../images/app_dev/gaze_track_test.mov" type="video/quicktime">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+            <div class="image-container single-image">
+                <img src="../images/payload26/simplified_kratos_diag.png" alt="Technical Aspect 1" style="object-fit: fill; aspect-ratio: auto;">
             </div>
             <div class="content-container">
-                <h3>Title for technical aspect 1</h3>
-                <p>Description of technical aspect 1</p>
+                <h3>System and PCB Design</h3>
+                <p>
+                    As of now, the electrical design facilitates the functions of all onboard systems via 5 PCBs:
+                </p>
+                <ul>
+                    <li>Main Control Board</li>
+                    <li>Telemetry Board</li>
+                    <li>Camera/Live Video Board</li>
+                    <li>Gimbal Control Board</li>
+                    <li>Power Management Board</li>
+                </ul>
+                <br>
+                <p>
+                    The Main Control Board manages communication between all subsystems to keep the system synchronized, while also handling key functions such as telemetry, system health monitoring, and guided descent control.
+                    <br> <br>
+                    The Telemetry Board simply collects telemetry data via an array of sensors and packages the data neatly before pushing it to a data bus (I2C to be read by Main Control Board). This was designed as a separate board since telemetry is a task that every year's payload needs to complete, and thus by outsourcing it to a separate control board it can be resused without much change (if any) year after year even if other systems change drastically.
+                    <br> <br>
+                    The Camera/Live Video Board and the Gimbal Control Board are meant to handle hardware related to the camera, streaming and storing the live video feed, and operating the gimbal hardware (also SRAD) autonomously during descent. We are currently considering moving gimbal control processing to the Main Control Board as a separate MCU may not be needed for this.
+                    <br> <br>
+                    Lastly, the Power Management Board will interface onboard batteries with a series of buck converters and other subsystems including the Main Control Board to bring subsytems online at the appropriate times and to store power generated by the wind turbine subsystem.
+                </p>
             </div>
         </div>
     </section>
 
-
     <section class="technical-section-2">
         <!-- Single image example -->
         <div class="technical-aspect-t2">
+            <div class="image-container-t2 multi-image">
+                <img src="../images/payload26/gimbal_new.png" alt="Technical Aspect 2" style="aspect-ratio: auto; object-fit: fill;">
+                <img src="../images/payload26/gimbal_wiring_plan.png" alt="Technical Aspect 2" style="aspect-ratio: auto; object-fit: fill;">
+                <img src="../images/payload26/live_video module.png" alt="Technical Aspect 2" style="aspect-ratio: auto; object-fit: fill;">
+                <img src="../images/payload26/Live video calculations.png" alt="Technical Aspect 2" style="aspect-ratio: auto; object-fit: fill;">
+            </div>
+            <div class="content-container-t2">
+                <h3>Gimbal and Live Video</h3>
+                Gimbal:
+                <ul>
+                    <li>We plan to do a 3-axis gimbal system</li>
+                    <li>Using a BNO085 IMU and GM3506 brushless motors with encoders to stabilize the camera. The initial concepts for the gimbal design itself can be seen here. The yaw axis will need 360 degrees of freedom (thus requiring a slipring to prevent wires tangling), while the other two axes will be limited to 180 degrees of freedom</li>
+                    <li>The initial wiring diagram can also be seen here. An initial drop test of a test payload with a camera will be conducted later in the fall after which we will determine if scaling back to a single axis stabilizer is necessary</li>
+                </ul>
+                <br>
+                Live Video:
+                <ul>
+                    <li>Shall store video feed from a digital camera (720p 30fps) on an SD card via a Raspberry Pi Zero 2W. Video will also be converted to analog using the Raspberry Pi</li>
+                    <li>Analog video will be transmitted over 1.3GHz radio limited to 200mW transmission power (IREC rules). We will be using a Matek VTX module to do this. Module and range calculations are shown</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="technical-section-1">
+        <div class="technical-aspect-t1">
             <div class="image-container multi-image">
-                <img src="../images/app_dev/oculomotor2.png" alt="Technical Aspect 1" style="aspect-ratio: auto; width: 48%;">
-                <img src="../images/app_dev/oculomotor1.png" alt="Technical Aspect 1" style="aspect-ratio: auto;">
-                <img src="../images/app_dev/oculomotor3.png" alt="Technical Aspect 1" style="aspect-ratio: auto;">
+                <img src="../images/payload26/guided_plan1.png" alt="Technical Aspect Main" style="aspect-ratio: auto; object-fit: fill;">
+                <img src="../images/payload26/parafoil.PNG" alt="Technical Aspect Detail 1">
+                <img src="../images/payload26/guided_pulleys.png" alt="Technical Aspect Detail 1">
             </div>
-            <div class="content-container-t2">
-                <h3>Title for technical aspect 1</h3>
-                <p>Description of technical aspect 1</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="technical-section-carousel" style="background-color: beige;">
-        <div class="technical-aspect-carousel">
-            <div class="carousel-container">
-                <div class="carousel-slide active">
-                    <img src="../images/app_dev/calibration_1.PNG" alt="Image 1" style="object-fit: contain;">
-                </div>
-                <div class="carousel-slide">
-                    <img src="../images/app_dev/calibration2.PNG" alt="Image 2" style="object-fit: contain;">
-                </div>
-                <div class="carousel-slide">
-                    <img src="../images/app_dev/calibration3.PNG" alt="Image 3" style="object-fit: contain;">
-                </div>
-                <div class="carousel-slide">
-                    <img src="../images/app_dev/calibration4.PNG" alt="Image 3" style="object-fit: contain;">
-                </div>
-                <button class="carousel-button prev">&lt;</button>
-                <button class="carousel-button next">&gt;</button>
-                <div class="carousel-dots"></div>
-            </div>
-            <div class="content-container-carousel" style="color: black;">
-                <h3>Technical Implementation</h3>
-                <p>Description of the technical implementation and its significance to the project.</p>
+            <div class="content-container">
+                <h3>Guided Descent</h3>
+                <p>As described previously, guided descent involves guiding the payload to a specified GPS location autonomously as it is descending. We intend to do this by using a parachute with controllable lines to allow us to steer the payload towards the goal landing zone. The designs we will test with are:</p>
+                <ul>
+                    <li>Cruciform parachute (first image) consisting of 'plus shaped' design made up of identical sqaures with 2 control lines. This has the benefit of a very simple design and simple control but with the drawback of less theorhetical control and steering capability</li>
+                    <li>Parafoil parachute (second image), more consistent with a design typically used for paragliding. This features a much more complex design (although still with 2 control lines), but with much better proven steerability</li>
+                </ul>
+                <br>
+                <p>The cruciform design is what has more recently been designed and tested (albeit not entirely successfully in terms of steering capabiliy) in Duke Aero, whereas the parafoil design, although much more promising for guidance control, features a much more involved and complicated design. We want to compare the efficacy of these two designs for the intended goal of guidance, and drone drop testing of test payloads with smaller versions of these parachutes will be used to do so (using the guided pulley system shown in the third image to control parachute lines).</p>
             </div>
         </div>
     </section>
 
-    <section class="technical-section-2">
-        <!-- Single image example -->
-        <div class="technical-aspect-t2">
-            <div class="image-container single-image">
-                <div class="video-container single-video">
-                    <video controls>
-                        <source src="../images/app_dev/breathe_easy.mp4" type="video/quicktime">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-            <div class="content-container-t2">
-                <h3>Title for technical aspect 1</h3>
-                <p>Description of technical aspect 1</p>
-            </div>
-        </div>
-    </section>
+
 
     <section class="gallery-section">
         <h2 class="projects-title gallery-title-proj">Gallery</h2>
         <div class="gallery-grid">
-            <img src="../images/app_dev/breathe_easy_look.png" alt="Gallery image 1">
-            <img src="../images/app_dev/oculomotor1.png" alt="Gallery image 1">
-            <img src="../images/app_dev/oculomotor3.png" alt="Gallery image 2">
-            <img src="../images/app_dev/calibration3.PNG" alt="Gallery image 3">
+            <img src="../images/payload26/IMG_4326.jpg" alt="Gallery image 1">
+            <img src="../images/payload26/IMG_6547.jpeg" alt="Gallery image 2">
+            <img src="../images/payload26/Initial Structure.png" alt="Gallery image 3">
+            <img src="../images/payload26/Deployer.png" alt="Gallery image 1">
+            <img src="../images/payload26/MicrosoftTeams-video.mp4" alt="Gallery image 2">
+            <img src="../images/payload26/test_payload.png" alt="Gallery image 3">
+            
             <!-- Add as many images as you need -->
         </div>
     </section>
 
-
+    <div id="foot-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/scripts.js"></script>
-    <script>
-        // Carousel functionality
-        const carousel = document.querySelector('.carousel-container');
-        const slides = carousel.querySelectorAll('.carousel-slide');
-        const prevButton = carousel.querySelector('.prev');
-        const nextButton = carousel.querySelector('.next');
-        const dotsContainer = carousel.querySelector('.carousel-dots');
-
-        // Create dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('carousel-dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
-        });
-
-        const dots = dotsContainer.querySelectorAll('.carousel-dot');
-        let currentSlide = 0;
-
-        function updateSlides() {
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlides();
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            updateSlides();
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlides();
-        }
-
-        prevButton.addEventListener('click', prevSlide);
-        nextButton.addEventListener('click', nextSlide);
-
-        // Auto-advance slides every 5 seconds
-        setInterval(nextSlide, 3000);
-    </script>
 </body>
 </html>
